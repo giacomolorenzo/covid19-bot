@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 var request = require('request');
 var app = express()
  //place the value below with the Telegram token you receive from @BotFather
-const token = '<your-key>'; //don't worry the key is not valid
+const token = '1135678876:<your-key>'; //don't worry the key is not valid
 const bot = new TelegramBot(token, {
     polling: true
   });
@@ -13,18 +13,21 @@ bot.onText(/\/regione (.+)/, (msg, match) => {
     getFiles("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni-latest.json").then(result=>{
         result.forEach(element => {
        if(element.denominazione_regione.toLowerCase().indexOf(match[1].toLowerCase()) !== -1){
-        var string = "data: "+element.data +"\n"
-        + "Regione: "+element.denominazione_regione+"\n"
-        + "Ricoverati con sintomi: "+element.ricoverati_con_sintomi+"\n"
-        + "Terapia intesiva: "+element.terapia_intensiva+"\n"
-        + "isolamento_domiciliare: "+ element.isolamento_domiciliare+"\n"
-        + "totale_attualmente_positivi: "+element.totale_attualmente_positivi+"\n"
-        + "nuovi_attualmente_positivi: "+element.nuovi_attualmente_positivi+"\n"
-        + "dimessi_guariti: "+element.dimessi_guariti+"\n"
-        + "deceduti: "+element.deceduti+"\n"
-        + "totale_casi: "+element.totale_casi+"\n"
-        + "tamponi: "+element.tamponi+"\n"
-        bot.sendMessage(msg.chat.id,string )
+        var string = "data: <b>"+element.data +"</b> \n"
+        + "Regione: <b>"+element.denominazione_regione+"</b> \n"
+        + "Ricoverati con sintomi: <b>"+element.ricoverati_con_sintomi+"</b> \n"
+        + "Terapia intesiva: <b>"+element.terapia_intensiva+"</b> \n"
+        + "Isolamento domiciliare: <b>"+element.isolamento_domiciliare+"</b> \n"
+        + "Totale attualmente positivi: <b>"+element.totale_attualmente_positivi+"</b> \n"
+        + "Nuovi attualmente positivi: <b>"+element.nuovi_attualmente_positivi+"</b> \n"
+        + "Dimessi guariti: <b>"+element.dimessi_guariti+"</b> \n"
+        + "Deceduti: <b>"+element.deceduti+"</b> \n"
+        + "Totale casi: <b>"+element.totale_casi+"</b> \n"
+        + "Tamponi: <b>"+element.tamponi+"</b> \n"
+        var option = {
+            "parse_mode": "HTML",
+        };
+        bot.sendMessage(msg.chat.id,string,option )
 
        }
    });
