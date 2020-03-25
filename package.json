@@ -1,0 +1,24 @@
+{
+  "name": "covid19-bot",
+  "version": "1.0.0",
+  "description": "telegram-bot-covid",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giacomolorenzo/covid19-bot.git"
+  },
+  "author": "giacomolorenzo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/giacomolorenzo/covid19-bot/issues"
+  },
+  "homepage": "https://github.com/giacomolorenzo/covid19-bot#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-telegram-bot-api": "^0.40.0",
+    "scramjet": "^4.28.3"
+  }
+}
