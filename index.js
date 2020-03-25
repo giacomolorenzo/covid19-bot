@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 var request = require('request');
 var app = express()
  //place the value below with the Telegram token you receive from @BotFather
-const token = '1135678876:<your-key>'; //don't worry the key is not valid
+const token = '<your-key>'; //don't worry the key is not valid
 const bot = new TelegramBot(token, {
     polling: true
   });
