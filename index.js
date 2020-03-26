@@ -9,7 +9,6 @@ const bot = new TelegramBot(token, {
     polling: true
   });
 bot.onText(/\/regione (.+)/, (msg, match) => {
-    console.log("sono dentro regione")
     getFiles("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni-latest.json").then(result=>{
         result.forEach(element => {
        if(element.denominazione_regione.toLowerCase().indexOf(match[1].toLowerCase()) !== -1){
@@ -36,7 +35,7 @@ bot.onText(/\/regione (.+)/, (msg, match) => {
 });
 
 bot.onText(/\/italia/, (msg, match) => {
-    console.log("sono dentro regione")
+  
     getFiles("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-andamento-nazionale-latest.json").then(result=>{
         result.forEach(element => {
        
@@ -63,7 +62,6 @@ bot.onText(/\/italia/, (msg, match) => {
 });
 
 bot.onText(/\/provincia (.+)/, (msg, match) => {
-    console.log("sono dentro regione")
     getFiles("https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-province-latest.json").then(result=>{
         result.forEach(element => {
        if(element.denominazione_provincia.toLowerCase().indexOf(match[1].toLowerCase()) !== -1){
@@ -99,7 +97,6 @@ async function getFiles(url){
     request.get(url, function (error, response, body) {
         if (!error && response.statusCode == 200) {
            var importedJSON = JSON.parse(body);
-           console.log(importedJSON);
            resolve(importedJSON);
         }
       });
