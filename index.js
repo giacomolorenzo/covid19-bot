@@ -46,7 +46,7 @@ bot.onText(/\/italia/, (msg, match) => {
         + "Totale ospedalizzati: <b>"+element.totale_ospedalizzati+"</b> \n"
         + "Isolamento domiciliare: <b>"+element.isolamento_domiciliare+"</b> \n"
         + "Totale attualmente positivi: <b>"+element.totale_positivi+"</b> \n"
-        + "Variazione positivi: <b>" +element.variazione_totale_positivi+ "+element.totale_positivi+"</b> \n"
+        + "Variazione positivi: <b>" +element.variazione_totale_positivi+"</b> \n"
         + "Nuovi attualmente positivi: <b>"+element.nuovi_positivi+"</b> \n"
         + "Dimessi guariti: <b>"+element.dimessi_guariti+"</b> \n"
         + "Deceduti: <b>"+element.deceduti+"</b> \n"
