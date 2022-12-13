@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/giacomolorenzo/covid19-bot#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "node-telegram-bot-api": "^0.40.0",
     "scramjet": "^4.28.3"
   }
